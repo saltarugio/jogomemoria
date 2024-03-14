@@ -2,7 +2,7 @@
 // $username = "root";
 // $password = "root";
 // $database = "letreco";
-// $hostname = "127.0.0.1";
+// $hostname = "127.0.0.1"
 
 $username = "newuser";
 $password = "root";
