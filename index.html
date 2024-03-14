@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letreco Aquario</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="title-container">
+            <h1>
+                <span>QUAL A PALAVRA?</span>
+            </h1>
+            <div class="tile-container"></div>
+            <div class="keyboard-container">
+                <div class="keyboard-row-containers" id="backSpaceAndEnterRow"></div>
+                <div class="keyboard-row-container" id="keyboardFirstRow"></div>
+                <div class="keyboard-row-container" id="keyboardSecondRow"></div>
+                <div class="keyboard-row-container" id="keyboardThridRow"></div>
+            </div>
+        </div>
+    </div>
+    <div id="message-container" class="hidden">
+        <div class="app-container">
+            <div class="title-container">
+                <h1>Mensagem</h1>
+            </div>
+            <div id="message-content">
+                <p id="message-text"></p>
+                <button id="restart-button" class="hidden" onclick="restartGame()">Reiniciar</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
