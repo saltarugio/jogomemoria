@@ -3,7 +3,7 @@
 // $password = "root";
 // $database = "letreco";
 // $hostname = "127.0.0.1";
-
+header('Access-Control-Allow-Origin: *');
 $username = "newuser";
 $password = "root";
 $database = "letreco";
