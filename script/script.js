@@ -23,7 +23,7 @@ var verified = new Boolean(false);
 
 function loadword() {
     //const url = `http://localhost/hunterword/api/index.php`;
-    const url = `http://DESKTOP-J458M9S/hunterword/api/index.php`;
+    const url = `https://DESKTOP-J458M9S/hunterword/api/index.php`;
     fetch(url, {
         method: 'GET'
     }).then(response => {
