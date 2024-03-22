@@ -22,7 +22,7 @@ let wordMap = {};
 let validity = [];
 const guesses = [];
 var verified = new Boolean(false);
-
+init();
 //Verifica se a palavra fornecida é valida
 function checkWordValidity(wordToCheck) {
     return new Promise((resolve, reject) => {
