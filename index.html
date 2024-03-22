@@ -14,27 +14,77 @@
             <h1>
                 <span>QUAL A PALAVRA?</span>
             </h1>
-            <div class="tile-container"></div>
-            <div class="keyboard-container">
-                <div class="keyboard-row-containers" id="backSpaceAndEnterRow"></div>
-                <div class="keyboard-row-container" id="keyboardFirstRow"></div>
-                <div class="keyboard-row-container" id="keyboardSecondRow"></div>
-                <div class="keyboard-row-container" id="keyboardThridRow"></div>
+        </div>
+
+        <div class="tile-container"></div>
+        <div class="keyboard-container">
+            <div class="keyboard-row-containers" id="backSpaceAndEnterRow"></div>
+            <div class="keyboard-row-container" id="keyboardFirstRow"></div>
+            <div class="keyboard-row-container" id="keyboardSecondRow"></div>
+            <div class="keyboard-row-container" id="keyboardThridRow"></div>
+        </div>
+
+        <div class="help-container">
+            <button class="btn_info">&#63;</button>
+
+            <div class="info-box">
+                <div class="title-container">
+                    <h1>COMO JOGAR</h1>
+                </div>
+                <div><span>1. As palavras são relacionadas ao Aquario Municipal de Piracicaba.</span></div>
+                <div><span>2. As palavras não possuem acentuação, espaços ou hífens.</span></div>
+                <div><span>3. Jogadores terão 6 tentativas de acertar palavra.</span></div>
+                <div><span>4. Caracteres presentes na palavra e na posição certa ficarão verdes, nas posições erradas:
+                        amarelas e caracteres errados: vermelhas.</span></div>
             </div>
         </div>
-    </div>
-    <div id="message-container" class="hidden">
-        <div class="app-container">
+
+        <div class="tipsBox">
+            <button class="btn_tips">&#33;</button>
+
+            <div class="tips">
+                <div class="title-container">
+                    <h1>DICAS</h1>
+                </div>
+                <p class="tips_text">
+                    <!--Adicionar texto via JS-->
+                </p>
+            </div>
+        </div>
+
+        <div id="overlay" class="hidden"></div>
+        <div id="message-container" class="hidden">
+
             <div class="title-container">
-                <h1>Mensagem</h1>
+                <h1><!--Adicionar texto via JS--></h1>
             </div>
             <div id="message-content">
-                <p id="message-text"></p>
-                <button id="restart-button" class="hidden" onclick="restartGame()">Reiniciar</button>
+                <h3 id="message-text"></h3>
+                <p class="curiosity"></p>
+                <button id="restart-button" class="hidden">Reiniciar</button>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footer-container">
+            <div class="social">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/victoraltarugio/" target="_blank"><img src="./icons/instagram.png" alt="instagram"></a>
+                    <a href="https://www.linkedin.com/in/victor-altarugio" target="_blank"><img src="./icons/linkedin.png" alt="linkedin"></a>
+                    <a href="https://github.com/saltarugio" target="_blank"><img src="./icons/placa-do-github.png" alt="github"></a>
+                </div>
+            </div>
+            <div class="developer">desenvolvido por estagiario da TI do SEMAE &copy; 2024 Victor Altarugio</div>
+        </div>
+    </footer>
+    <!--Biblioteca do ajax-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--JS de palavras-->
+    <script src="./words/words.js"></script>
+    <!--Arquivo JS-->
     <script src="./script/script.js"></script>
+    <!--Consulta no banco de dados-->
+    <script src="./script/loadword.js"></script>
 </body>
 
 </html>

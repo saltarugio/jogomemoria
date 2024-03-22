@@ -1,11 +1,14 @@
 <?php
+// Configurações do banco de dados
+$servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $database = "letreco";
-$hostname = "127.0.0.1";
 
-$conn = new mysqli($hostname, $username, $password, $database);
-if($conn->connect_errno){
-    die("Conexão falhou: (". $conn->connect_errno . ")" . $conn->connect_error); 
+// Conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
 }
-?>
