@@ -208,83 +208,82 @@ function displayMessage(message) {
 }
 
 //Função do botão de reiniciar o jogo
-restart_btn.onclick = ()=>{
+restart_btn.onclick = () => {
     // Recarrega a página para reiniciar o jogo
     window.location.reload();
 }
 
-function init() {
-    //Embaralha o array de palavras
-    for (let i = words.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i * 1));
-        [words[i], words[j]] = [words[j], words[i]];
-    }
-    wordNow = words.slice(0, 1);
-    columns = wordNow[0].palavra.length;
-    console
-    //Faz o mapeamento das letras da palavra escolhida
-    for (let index = 0; index < wordNow[0].palavra.length; index++) {
-        const letter = wordNow[0].palavra[index];
-        if (wordMap.hasOwnProperty(letter)) {
-            wordMap[letter].push(index);
-        } else {
-            wordMap[letter] = [index];
-        }
-    }
 
-    // Crie as novas colunas com base no tamanho da palavra
-    for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
-        guesses[rowIndex] = new Array(columns);
-        const tileRow = document.createElement("div");
-        tileRow.setAttribute("id", "row" + rowIndex);
-        tileRow.setAttribute("class", "tile-row");
-        for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
-            const tileColumn = document.createElement("div");
-            tileColumn.setAttribute("id", "row" + rowIndex + "column" + columnIndex);
-            tileColumn.setAttribute("class", rowIndex === 0 ? "tile-column typing" : "tile-column disable");
-            tileRow.append(tileColumn);
-            guesses[rowIndex][columnIndex] = "";
-        }
-        tiles.append(tileRow);
-    }
-
-    createKeyboardRow(keysFirstRow, keyboardFirstRow);
-    createKeyboardRow(keysSecondRow, keyboardSecondRow);
-    createKeyboardRow(keysThridRow, keyboardThridRow);
-
-    //Cria o botão de apagar
-    const backSpaceButton = document.createElement("button");
-    const backSpaceIcon = document.createElement("img");
-    backSpaceIcon.src = "./icons/backspace.png";
-    backSpaceButton.appendChild(backSpaceIcon);
-    backSpaceButton.addEventListener("click", backSpace);
-    backSpaceAndEnterRow.append(backSpaceButton);
-
-    //Cria o botão de entre
-    const enterButton = document.createElement("button");
-    const enterIcon = document.createElement("img");
-    enterIcon.src = "./icons/enter.png";
-    enterButton.appendChild(enterIcon);
-    enterButton.addEventListener("click", checkGuess);
-    backSpaceAndEnterRow.append(enterButton);
-
-    //Função de pegar as letras do teclado
-    document.onkeydown = function (evt) {
-        evt = evt || window.evt;
-        if (evt.key === "Enter") {
-            checkGuess();
-        } else if (evt.key === "Backspace") {
-            backSpace();
-        } else {
-            if (/^[a-z]$/.test(evt.key) || /^[A-Z]$/.test(evt.key)) {
-                keyboard(evt.key.toUpperCase());
-            }
-        }
-    }
-
-    const tipsText = document.querySelector(".tips_text");
-    const tips = document.querySelector(".tips");
-    tipsText.textContent = wordNow[0].dica;
-    tips.append(tipsText);
-
+//Embaralha o array de palavras
+for (let i = words.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i * 1));
+    [words[i], words[j]] = [words[j], words[i]];
 }
+wordNow = words.slice(0, 1);
+columns = wordNow[0].palavra.length;
+console
+//Faz o mapeamento das letras da palavra escolhida
+for (let index = 0; index < wordNow[0].palavra.length; index++) {
+    const letter = wordNow[0].palavra[index];
+    if (wordMap.hasOwnProperty(letter)) {
+        wordMap[letter].push(index);
+    } else {
+        wordMap[letter] = [index];
+    }
+}
+
+// Crie as novas colunas com base no tamanho da palavra
+for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
+    guesses[rowIndex] = new Array(columns);
+    const tileRow = document.createElement("div");
+    tileRow.setAttribute("id", "row" + rowIndex);
+    tileRow.setAttribute("class", "tile-row");
+    for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
+        const tileColumn = document.createElement("div");
+        tileColumn.setAttribute("id", "row" + rowIndex + "column" + columnIndex);
+        tileColumn.setAttribute("class", rowIndex === 0 ? "tile-column typing" : "tile-column disable");
+        tileRow.append(tileColumn);
+        guesses[rowIndex][columnIndex] = "";
+    }
+    tiles.append(tileRow);
+}
+
+createKeyboardRow(keysFirstRow, keyboardFirstRow);
+createKeyboardRow(keysSecondRow, keyboardSecondRow);
+createKeyboardRow(keysThridRow, keyboardThridRow);
+
+//Cria o botão de apagar
+const backSpaceButton = document.createElement("button");
+const backSpaceIcon = document.createElement("img");
+backSpaceIcon.src = "./icons/backspace.png";
+backSpaceButton.appendChild(backSpaceIcon);
+backSpaceButton.addEventListener("click", backSpace);
+backSpaceAndEnterRow.append(backSpaceButton);
+
+//Cria o botão de entre
+const enterButton = document.createElement("button");
+const enterIcon = document.createElement("img");
+enterIcon.src = "./icons/enter.png";
+enterButton.appendChild(enterIcon);
+enterButton.addEventListener("click", checkGuess);
+backSpaceAndEnterRow.append(enterButton);
+
+//Função de pegar as letras do teclado
+document.onkeydown = function (evt) {
+    evt = evt || window.evt;
+    if (evt.key === "Enter") {
+        checkGuess();
+    } else if (evt.key === "Backspace") {
+        backSpace();
+    } else {
+        if (/^[a-z]$/.test(evt.key) || /^[A-Z]$/.test(evt.key)) {
+            keyboard(evt.key.toUpperCase());
+        }
+    }
+}
+
+const tipsText = document.querySelector(".tips_text");
+const tips = document.querySelector(".tips");
+tipsText.textContent = wordNow[0].dica;
+tips.append(tipsText);
+
